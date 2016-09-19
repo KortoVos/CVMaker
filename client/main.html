@@ -1,25 +1,189 @@
 <head>
-  <title>CVMaker</title>
+  <title>vcMake</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+    <div class="row">
+      
+      <div class="col s12">
+        <div class="card-panel">
+          <h5>CV Maker!</h5>
+        </div>
+      </div>
 
-  {{> hello}}
-  {{> info}}
+      <div class="col s3">
+        <div class="card-panel indigo-text text-lighten-5 indigo darken-2">Erstelle dein eigenen Lebenslauf!</div>
+        {{> sideMenu}}
+      </div>
+      
+      <div class="col s9">
+        {{> designFirst}}
+        
+      </div>
+      
+      
+          
+       <!--<div class="container"><h1>CV Maker!</h1></div>
+        <div class="card-panel indigo lighten-1">This is a card panel with a teal lighten-2 class</div>
+
+        {{> login}}
+        {{> info}} -->
+    </div>
+    {{> footer}} 
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="sideMenu">
+  <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header indigo lighten-1"><i class="material-icons">import_export</i>Automatisierte Erstellung</div>
+      <div class="collapsible-body">
+        
+        <p>Melde dich in mit deinen Sozial-Media Profilen ein um Teile des Lebenslaufs automatisch zu erstellen</p>
+        {{> loginButtons}}
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header indigo lighten-1"><i class="material-icons">mode_edit</i>Design</div>
+      <div class="collapsible-body">
+
+        <p>Wähle ein Design</p>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header indigo lighten-1 active"><i class="material-icons">person_pin</i>Profil</div>
+      <div class="collapsible-body">
+        <div class="row">
+          <div class="col s12" style="padding:0%;">
+            <ul class="tabs">
+              <li class="tab col s1"><a class="active" href="#profilePic"><i class="material-icons">videocam</i></a></li>
+              <li class="tab col s1"><a href="#realName"><i class="material-icons">perm_identity</i></a></li>
+              <li class="tab col s1"><a href="#contactData"><i class="material-icons">picture_in_picture</i></a></li>
+            </ul>
+          </div>
+          <div id="profilePic" class="col s12">
+            <p>Profilphoto</p>
+            <form action="#">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" accept="image/*">
+                </div>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
+          </div>
+          <div id="realName" class="col s12">
+            <p>Name</p>       
+            <div class="row">
+              <form class="new-userName col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="firstName" type="text" class="validate" name="firstName">
+                    <label for="firstName" data-error="wrong" data-success="right">Vorname</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="surName" class="validate" type="text" name="surName">
+                    <label for="surName" data-error="wrong" data-success="right">Nachname</label>
+                  </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+              </form>
+            </div>
+          </div>
+          <div id="contactData" class="col s12">
+            <p>Kontaktdaten</p>
+            
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header indigo lighten-1"><i class="material-icons">mode_edit</i>Über Mich</div>
+      <div class="collapsible-body">
+        <p>Schreib etwas über dich.</p>
+        <form class="new-aboutMe">
+          <input type="text" name="aboutMe" placeholder="Über mich">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </li>
+  </ul>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+<template name="footer">
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
+</template>
+            
+<template name="designFirst">
+  <div class="card-panel" style="padding:0in;">
+    <div class="row">
+      <div class="col s3 indigo darken-2">
+        <div class="row">
+          <div class="col s12" style="padding-top:1.5em;">
+            {{> profilImage1}}
+          </div>
+          <div class="col s12">
+            <h5>{{aboutMe.cvData.surName}}</h5>
+            <p>{{aboutMe.cvData.firstName}}</p>
+          </div>
+          <div class="col s12">
+            {{> profilInfo1}}
+          </div>
+          <div class="col s12">
+            {{aboutMe.cvData.aboutMe}}
+          </div>
+        </div>
+      </div>
+      <div class="col s8">
+        {{#each user}}
+          {{cvData.firstName}}
+        {{/each}}
+        <p>
+          {{test}}
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="profilImage1">
+  <img src="v1.jpg" style="width:12em; height:12em;" alt="" class="circle responsive-img">
+</template>
+
+<template name="profilInfo1">
+  
 </template>
