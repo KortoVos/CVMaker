@@ -16,7 +16,8 @@ Template.designFirst.helpers({
 		return data;
 	},test : function(){
 		var data = userData.find();
-		return JSON.stringify({"user":Meteor.user()},undefined,2);
+		//return JSON.stringify({"user":Meteor.user()},undefined,2);
+		return JSON.stringify(userData.find({ _id:Meteor.user()._id}).fetch()[0],undefined,2);
 	},aboutMe: function(){
 		var data = userData.find();
 		//return JSON.stringify({"user":userData.find({ _id:Meteor.user()._id}).fetch()[0]},undefined,2);
@@ -47,11 +48,29 @@ Template.sideMenu.events({
 	},'submit .new-userName': function(event){
 		var firstname = event.target.firstName.value;
 		var surName = event.target.surName.value;
+		var birthDate = event.target.birthDate.value;
 		userData.update(Meteor.user()._id,
 			{
 				$set:{
 					"cvData.firstName":firstname,
-					"cvData.surName":surName
+					"cvData.surName":surName,
+					"cvData.birthDate":birthDate
+				}
+			},{
+				upsert:true
+			}
+			);
+			return false;
+	},'submit .new-ContactData': function(event){
+		var contactMail = event.target.contactMail.value;
+		var contactTel = event.target.contactTel.value;
+		var contactMobile = event.target.contactMobile.value;
+		userData.update(Meteor.user()._id,
+			{
+				$set:{
+					"cvData.contactMail":contactMail,
+					"cvData.contactTel":contactTel,
+					"cvData.contactMobile":contactMobile
 				}
 			},{
 				upsert:true
