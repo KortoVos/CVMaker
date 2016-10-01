@@ -94,11 +94,6 @@
                     <label for="surName" data-error="wrong" data-success="right">Nachname</label>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                      <input id="birthDate" type="date" class="datepicker">
-                  </div>
-                </div>
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                   <i class="material-icons right">send</i>
                 </button>
@@ -107,31 +102,7 @@
           </div>
           <div id="contactData" class="col s12">
             <p>Kontaktdaten</p>
-            <div class="row">
-              <form class="new-ContactData col s12">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input id="contactMail" type="email" class="validate" name="firstName">
-                    <label for="contactMail" data-error="wrong" data-success="right">E-Mail</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input id="contactTel" class="validate" type="text" name="surName">
-                    <label for="contactTel" data-error="wrong" data-success="right">Tel. Nummer</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input id="contactMobile" class="validate" type="text" name="surName">
-                    <label for="contactMobile" data-error="wrong" data-success="right">Handy-Nummer</label>
-                  </div>
-                </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="material-icons right">send</i>
-                </button>
-              </form>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -201,9 +172,9 @@
         {{#each user}}
           {{cvData.firstName}}
         {{/each}}
-        <textarea style="height:300px;">
+        <p>
           {{test}}
-        </textarea >
+        </p>
       </div>
     </div>
   </div>
