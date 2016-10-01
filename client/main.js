@@ -7,7 +7,6 @@ import './main.html';
 
 
 
-
 Template.designFirst.helpers({
 	user: function(){
 		//JSON.stringify(Meteor.user(),undefined,2);
@@ -77,7 +76,15 @@ Template.sideMenu.events({
 			}
 			);
 			return false;
-	}
+	},'change .myFileInput': function(event, template) {
+    	var files = event.target.files;
+    	for (var i = 0, ln = files.length; i < ln; i++) {
+      		Images.insert(files[i], function (err, fileObj) {
+        		// Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+      		});
+    	}
+  	}
+
 });
 
 
@@ -85,3 +92,4 @@ Template.sideMenu.events({
 Accounts.ui.config({
 	passwordSignupFields:"USERNAME_AND_OPTIONAL_EMAIL"
 });
+
